@@ -1,0 +1,26 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Content-font, Roboto, sans-serif;
+  word-break: break-word;
+  width: 100%;
+  height: 100%;
+}
+/* reponsive cho phần search */
+@media only screen and (max-width: 1024px) {
+  .ant-drawer {
+    z-index: 9999;
+  }
+  .search .anticon-search {
+    padding: 0;
+  }
+  .search-bar .ant-drawer-content-wrapper {
+    width: 350px !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+    .search-bar .ant-drawer-content-wrapper {
+      width: 310px !important;
+    }
+  }
