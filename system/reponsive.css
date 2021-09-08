@@ -7,6 +7,65 @@ body {
   width: 100%;
   height: 100%;
 }
+
+.item-menu-hover:hover{
+  background-color: #e6ecf1;
+  cursor: pointer;
+}
+
+
+.content {
+  margin-top: 32px;
+}
+.content img{
+  /* width: 100%; */
+  max-width: 100%;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  max-height: 60vh;
+  object-fit: contain;
+  cursor: zoom-in;
+}
+
+.content p {
+  font-size: 16px ;
+  font-weight: 400 ;
+  line-height: 1.625 ;
+  color: #3b454e ;
+  margin-bottom: 24px ;
+}
+
+.content h2 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-top: 32px;
+  margin-bottom: 24px;
+  color: #242a31;
+}
+
+.content h3{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: rgb(36, 42, 49);
+    margin-top: 20px;
+}
+
+.content ul{
+  font-size: 16px;
+  color: #242a31;
+  margin: 0;
+}
+.content ol{
+  font-size: 16px;
+  color: #242a31;
+  margin: 0;
+}
+
+
+
+
 /* reponsive cho phần search */
 @media only screen and (max-width: 1024px) {
   .ant-drawer {

@@ -1,13 +1,13 @@
 <template>
   <div class="header-content">
-    <h1>{{ header.title }}</h1>
-    <p>{{ header.descriptions }}</p>
+    <h1>{{ title }}</h1>
+    <p>{{ descriptions }}</p>
   </div>
 </template>
 <script>
 export default {
   name: 'HeaderContent',
-  props: ['header'],
+  props: ['title','descriptions'],
 }
 </script>
 

@@ -4,14 +4,14 @@
       <div class="flex-author">
         <div class="hover-author">
           <img
-            :src= data.src
+            :src= img
             alt="author-img"
           />
           <div class="author">
-            <span>{{data.name}}</span>
+            <span>{{name}}</span>
           </div>
         </div>
-        <span>{{data.update}}</span>
+        <span>{{update}}</span>
       </div>
     </a-col>
     <a-col :xl="12" :lg="12" :md="12" :xs="24" :sm="24">
@@ -28,7 +28,7 @@
 </template>
 <script>
 export default {
-  props: ['data']
+  props: ['img', 'name', 'update']
 }
 </script>
 

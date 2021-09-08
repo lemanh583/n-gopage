@@ -12,7 +12,7 @@ import Content3 from '~/components/content/Content3.vue'
 import FooterContent from '~/components/content/FooterContent'
 import PaginatePrevious from '~/components/content/PaginatePrevious'
 export default {
-  layout: 'Left',
+  layout: 'DashBoard',
   components: {
     HeaderContent,
     Content3,

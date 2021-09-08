@@ -17,6 +17,7 @@
   display: flex;
   height: 80px;
   align-items: center;
+  width: 191px;
 }
 .img-logo {
   width: 40px;
@@ -34,7 +35,7 @@ span {
   font-size: 24px;
   font-weight: 500;
   line-height: 1.5;
-  overflow-wrap: break-word;
+  /* overflow-wrap: break-word; */
   padding-left: 8px;
   color: #242a31;
 }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="select-language" @click="hiddenOptions">
+    <div class="select-language item-menu-hover" @click="hiddenOptions">
       <div class="header-select-language" >
         <!-- <a-icon type="book" style="padding-top: 5px" /> -->
         <svg
@@ -34,11 +34,11 @@
       </div>
     </div>
     <div v-if="isShow" class="language">
-      <div class="language-option">
+      <div class="language-option item-menu-hover">
         <h3>Tiếng Việt</h3>
         <p style="">MAIN</p>
       </div>
-      <div class="language-option">
+      <div class="language-option item-menu-hover">
         <h3>English</h3>
         <p v-if="false">MAIN</p>
       </div>
@@ -63,9 +63,6 @@ export default {
 }
 </script>
 <style scoped>
-.select-language:hover {
-  background-color: #e6ecf1;
-}
 .select-language .header-select-language{
   display: flex;
   padding: 15px 24px 10px 16px;
@@ -97,9 +94,7 @@ export default {
   font-size: 14;
   flex: 1;
 }
-.language-option:hover {
-  background-color: #e6ecf1;
-}
+
 .language .language-option p {
   font-size: 10px;
   font-weight: 700;

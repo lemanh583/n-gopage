@@ -12,7 +12,7 @@ import Content4 from '~/components/content/Content4.vue'
 import FooterContent from '~/components/content/FooterContent'
 import PaginateMiddle from '~/components/content/PaginateMiddle'
 export default {
-  layout: 'Left',
+  layout: 'DashBoard',
   components: {
     HeaderContent,
     Content4,

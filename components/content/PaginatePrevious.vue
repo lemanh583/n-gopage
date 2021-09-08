@@ -1,13 +1,13 @@
 <template>
   <div>
     <a-row>
-      <Nuxt-link :to="data.url">
+      <Nuxt-link :to="data.params.link">
       <a-col :span="24" class="col">
         <div class="paginate">
           <a-icon type="arrow-left" />
           <div>
-            <span>{{data.part}}</span>
-            <h3>{{data.pre}}</h3>
+            <span>{{data.category}}-Previous</span>
+            <h3>{{data.params.titlePost}}</h3>
           </div>
         </div>
       </a-col>
@@ -33,7 +33,7 @@ export default {
 .col:hover{
    border-color: #3884ff;
 }
-.col:hover .head{
+.col:hover h3{
   color: #3884ff;
 }
 .col:hover .anticon{
@@ -41,7 +41,7 @@ export default {
 }
 .paginate {
   display: flex;
-  padding: 16px;
+  padding: 10px;
   justify-content: space-between;
   align-items: center;
 }

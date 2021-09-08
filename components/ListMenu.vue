@@ -1,82 +1,59 @@
 <template>
   <div class="list-menu">
-    <div v-for="(p, index) in part" :key="index" class="part">
-      <div
-        :class="[
-          p.child.length === 0
-            ? 'menu-items'
-            : ['heading-menu', 'unselectable'],
-          p.heading == 'Hướng dẫn sử dụng phần mềm GoPage' ? 'active' : '',
-        ]"
-      >
-        <Nuxt-link v-if="p.child.length === 0" to="">
-          <h3>{{ p.heading }}</h3>
-        </Nuxt-link>
-        <h3 v-else>{{ p.heading }}</h3>
+    <div v-for="(p, index) in menus" :key="index" class="part">
+      <div class="heading-menu unselectable">
+        <h3>{{ p.parent }}</h3>
       </div>
-      <div
-        v-for="(c, i) in p.child"
-        :key="i"
-        class="menu-items"
-      >
-        <Nuxt-link to="/">
-          <h3>{{ c }}</h3>
+      <div v-for="(c, i) in p.child" :key="i">
+        <Nuxt-link :to="c.link">
+          <div
+            :class="[
+              'menu-items',
+              'item-menu-hover',
+              c.link === url ? 'active' : '',
+            ]"
+            @click="getEl"
+          >
+            <strong>{{ c.title }}</strong>
+          </div>
         </Nuxt-link>
       </div>
     </div>
   </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 export default {
+  name: 'ListMenu',
   data() {
     return {
-      part: [
-        {
-          heading: 'Hướng dẫn sử dụng phần mềm GoPage',
-          child: [],
-        },
-        {
-          heading: 'I/ TỔNG QUAN',
-          child: [
-            'GIỚI THIỆU GOPAGE',
-            '1.1. Đăng ký và thanh toán gói cước',
-            '1.2. Kích hoạt fanpage',
-            '1.3. Cài đặt Extension Get Token',
-            '1.4. Thêm fanpage mới',
-          ],
-        },
-        {
-          heading: 'II/ QUẢN LÝ  FANPAGE',
-          child: [
-            '2.1. Hướng dẫn Cài đặt chung',
-            '2.2. Cài đặt "Nhãn hội thoại"',
-            '2.3. Cài đặt "Tin nhắn nhanh"',
-          ],
-        },
-        {
-          heading: 'III/ CÁC TÍNH NĂNG KHÁC',
-          child: [
-            '3.1. Quản lý bình luận - Tự động gắn nhãn',
-            '3.2. Ẩn - Bỏ qua bình luận',
-            '3.3. Trả lời tự động',
-            '3.4. Kịch bản chốt đơn tự động',
-            '3.5. Nhắn tin hàng loạt',
-            '3.6. Spam tin nhắn hàng loạt',
-            '3.7. Quay số may mắn',
-            '3.8. Thu thập số điện thoại khách hàng',
-          ],
-        },
-        {
-          heading: 'IV/ KIẾM TIỀN CÙNG GOPAGE',
-          child: ['Tham gia kiếm tiền Affiliate'],
-        },
-        {
-          heading: 'THÔNG TIN LIÊN HỆ',
-          child: [],
-        },
-      ],
+      pathInit: '',
+      path: '',
     }
-  }
+  },
+  computed: {
+    ...mapState(['menus','url']),
+  },
+  created() {
+    this.pathInit = this.$route.path
+    // console.log(this.pathInit)
+  },
+  methods: {
+    getEl(e) {
+      // this.list_menu = document.querySelectorAll('.menu-items')
+      // for (let i = 0; i < this.list_menu.length; i++) {
+      //   this.list_menu[i].classList.remove('active')
+      // }
+      // e.currentTarget.classList.add('active')
+
+      // console.log(this.url)
+      // this.setLink()
+      // setTimeout(() => {
+      //   this.pathInit = this.$route.path
+      // },50)
+    },
+      // 
+  },
 }
 </script>
 
@@ -85,22 +62,21 @@ export default {
   margin-top: 32px;
 }
 .menu-items {
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.5;
-  padding: 7px 24px 2px 16px;
+  padding: 7px 24px 7px 16px;
   align-items: center;
   box-sizing: border-box;
   margin: 0;
   color: inherit;
+  border: 1px solid #e6ecf100;
 }
-.menu-items h3{
-    /* color: inherit; */
+.menu-items strong {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #3b454e;
+  /* color: inherit; */
 }
-.menu-items:hover {
-  background-color: #e6ecf1;
-  cursor: pointer;
-}
+
 .list-menu .heading-menu h3 {
   font-weight: 700;
   line-height: 1.2;
@@ -128,7 +104,7 @@ export default {
 
   border: 1px solid #e6ecf1;
 }
-.active h3 {
+.active strong {
   color: #3884ff;
 }
 </style>

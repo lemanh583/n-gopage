@@ -1,3 +1,4 @@
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   loading: {
@@ -9,6 +10,7 @@ export default {
   //   host: '0.0.0.0', // default: localhost,
   //   timing: false
   // },
+  
   head: {
     title: 'nuxtjs',
     htmlAttrs: {
@@ -33,7 +35,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '@/plugins/antd-ui'
+    '@/plugins/antd-ui',
+    '@/plugins/axios'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -47,7 +50,13 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/markdownit',
+    '@nuxtjs/axios'
+
   ],
+  markdownit: {
+    runtime: true // Support `$md()`
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
