@@ -1,9 +1,18 @@
 <template>
   <div class="list-menu">
     <div v-for="(p, index) in menus" :key="index" class="part">
-      <div class="heading-menu unselectable">
-        <h3>{{ p.parent }}</h3>
-      </div>
+      <!-- <p>{{typeof p.linkCategory}}</p> -->
+      <!-- <p>{{url}}</p> -->
+      <Nuxt-link :to="p.linkCategory == null ? '' : p.linkCategory"> 
+        <div :class="['heading-menu',
+                      'item-menu-hover',
+                      p.linkCategory === url ? 'active' : '',
+                      ]">
+          <!-- unselectable -->
+          <h3>{{ p.parent }}</h3>
+        </div>
+      </Nuxt-link>
+
       <div v-for="(c, i) in p.child" :key="i">
         <Nuxt-link :to="c.link">
           <div
@@ -62,7 +71,7 @@ export default {
   margin-top: 32px;
 }
 .menu-items {
-  padding: 7px 24px 7px 16px;
+  padding: 10px 24px 10px 16px;
   align-items: center;
   box-sizing: border-box;
   margin: 0;
@@ -84,9 +93,13 @@ export default {
   text-transform: uppercase;
   font-size: 12px;
   color: #9daab6;
-  padding: 7px 24px 7px 16px;
+  padding: 15px 24px 13px 16px;
   margin: 0;
 }
+.list-menu .heading-menu {
+  border: 1px solid #e6ecf100;
+}
+
 .part {
   margin-bottom: 20px;
 }
@@ -106,5 +119,8 @@ export default {
 }
 .active strong {
   color: #3884ff;
+}
+.active h3 {
+  color: #3884ff !important;
 }
 </style>

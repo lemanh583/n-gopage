@@ -7,7 +7,7 @@
       <div>---------------------------------------</div>
     </div>
     <div>----------------------------------------------</div>
-    <div>{{posts}}</div>
+    <div>{{menus}}</div>
     <!-- <div>{{category}} </div> -->
     <!-- <HeaderContent :title="posts[0].title" :descriptions="posts[0].descriptions"/>
     <div class="content">

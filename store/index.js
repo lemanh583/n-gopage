@@ -17,7 +17,8 @@ export const state = () => ({
   arrLink: null,
   linkPre: null,
   linkNext: null,
-  url: null
+  url: null,
+  postsForCategory: null
 })
 
 export const mutations = {
@@ -41,6 +42,7 @@ export const mutations = {
    
   },
   setLink(state, route) {
+    
     state.menus.forEach((menu) => {
       menu.child.forEach((el) => {
         if (el.link === route) {
@@ -69,6 +71,14 @@ export const mutations = {
       }
     })
   },
+  setPostsForCategory(state, urlCategory){
+    state.menus.forEach(menu => {
+      if(menu.linkCategory === urlCategory){
+        state.postsForCategory = menu
+      }
+    })
+  }
+
 }
 
 const removeAccents = (str) => {
@@ -91,7 +101,8 @@ const removeAccents = (str) => {
   for (let i = 0; i < AccentsMap.length; i++) {
     const re = new RegExp('[' + AccentsMap[i].substr(1) + ']', 'g')
     const char = AccentsMap[i][0]
-    str = str.replace(re, char)
+    str = str.replace(/,/g,'')
+    str = str.replace(re, char) 
   }
   return str.toLowerCase().replace(/\s/g, '-')
 }
@@ -138,12 +149,13 @@ export const actions = {
             title: `${index}.${stt}. ${post.Title}`,
             titlePost: post.Title,
             order: post.Order,
-            link: `/${removeAccents(category.title)}/${removeAccents(post.Title)}`,
+            link: `/blog/${removeAccents(post.Title)}`,
           }
       })
 
       state.menus.push({
         id: category.id,
+        linkCategory: `/category/${removeAccents(category.title)}`,
         parent: category.title,
         child: postsCategory,
       })
