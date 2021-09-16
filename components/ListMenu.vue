@@ -1,7 +1,7 @@
 <template>
   <div class="list-menu">
     <div v-for="(p, index) in menus" :key="index" class="part">
-      <!-- <p>{{typeof p.linkCategory}}</p> -->
+      <!-- <p>{{ p.linkCategory === url}}</p> -->
       <!-- <p>{{url}}</p> -->
       <Nuxt-link :to="p.linkCategory == null ? '' : p.linkCategory"> 
         <div :class="['heading-menu',

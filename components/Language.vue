@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="select-language item-menu-hover" @click="hiddenOptions">
-      <div class="header-select-language" >
+      <div class="header-select-language">
         <!-- <a-icon type="book" style="padding-top: 5px" /> -->
         <svg
           preserveAspectRatio="xMidYMid meet"
@@ -14,7 +14,6 @@
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke="currentColor"
-          style="margin-top: 5px;"
         >
           <g>
             <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
@@ -22,29 +21,34 @@
             <polyline points="2 12 12 17 22 12"></polyline>
           </g>
         </svg>
-        <h3 class="main-language">Tiếng Việt</h3>
-        <a-icon
-          v-if="isShow"
-          type="down"
-        />
-        <a-icon
-          v-if="!isShow"
-          type="right"
-        />
+        <h3 class="main-language">
+          {{isViet ? 'Tiếng Việt' : 'English'}}
+        </h3>
+        <a-icon v-if="isShow" type="down" />
+        <a-icon v-if="!isShow" type="right" />
       </div>
     </div>
+
     <div v-if="isShow" class="language">
-      <div class="language-option item-menu-hover">
+      <div 
+        :class="['language-option', 'item-menu-hover']" 
+        :style="{boxShadow: isViet ? 'rgb(0 128 255) 2px 0px 0px inset':'none'}"
+        @click="switchLanguage('v')"
+      >
         <h3>Tiếng Việt</h3>
-        <p style="">MAIN</p>
+        <p v-if="isViet">MAIN</p>
       </div>
-      <div class="language-option item-menu-hover">
+      <div 
+        :class="['language-option', 'item-menu-hover']"
+        :style="{boxShadow: isEng ? 'rgb(0 128 255) 2px 0px 0px inset':'none'}"  
+        @click="switchLanguage('e')"
+      >
         <h3>English</h3>
-        <p v-if="false">MAIN</p>
+        <p v-if="isEng">MAIN</p>
       </div>
 
       <!-- div rỗng -->
-      <div style="height: 23px;"></div>
+      <div style="height: 23px"></div>
     </div>
   </div>
 </template>
@@ -53,24 +57,38 @@ export default {
   data() {
     return {
       isShow: true,
+      isActive: true,
+      isViet: true,
+      isEng: false
     }
   },
   methods: {
     hiddenOptions() {
       this.isShow = !this.isShow
     },
+    switchLanguage(lang){
+      if(lang === 'e'){
+        this.isViet = false
+        this.isEng = true
+      }else{
+         this.isViet = true
+        this.isEng = false
+      }
+    }
   },
 }
 </script>
 <style scoped>
-.select-language .header-select-language{
+.select-language .header-select-language {
   display: flex;
   padding: 15px 24px 10px 16px;
-  border-bottom:  1px solid #e6ecf1;
+  border-bottom: 1px solid #e6ecf1;
+  align-items: center;
 }
-.select-language .header-select-language .main-language{
-  padding-left: 10px; 
-  padding-top: 2px
+.select-language .header-select-language .main-language {
+  padding-left: 10px;
+  padding-top: 2px;
+  margin: 0;
 }
 .language {
   /* height: 90px; */
@@ -88,7 +106,7 @@ export default {
   /* position: relative; */
 }
 .language-option h3 {
-  padding: 7px 24px 2px 16px;
+  padding: 10px 24px 2px 16px;
   font-weight: 500;
   line-height: 1.5;
   font-size: 14;
@@ -112,9 +130,14 @@ export default {
   /* position: absolute; */
 }
 .anticon {
-  padding-left: 127px;
-  padding-top: 5px;
+  /* padding-left: 127px;
+  padding-top: 5px; */
   color: #9daab6;
   font-size: 13px;
+  margin-left: auto;
+}
+
+.activeLaguage {
+  box-shadow: rgb(0 128 255) 2px 0px 0px inset;
 }
 </style>

@@ -1,18 +1,9 @@
 <template>
   <div>
-    <!-- <div>{{post}}</div>
-    <div>{{$route.params.slug}}</div> -->
     <HeaderContent :title="post[0].Title" />
     <div class="content">
       <div v-html="$md.render(post[0].Content)"></div>
     </div>
-    
-    <!-- <div>---------------------------</div>
-    <div>{{url}}</div>
-    <div>---------------------------</div>
-    <div>{{ arrLink }}</div>
-    <div>{{ linkPre }}</div>
-    <div>{{ linkNext }}</div> -->
     <PaginateNext v-if="linkPre == null && linkNext != null" :data="linkNext" />
     <PaginateMiddle
       v-if="linkPre != null && linkNext != null"
@@ -20,9 +11,7 @@
       :pre="linkPre"
     />
     <PaginatePrevious v-if="linkNext == null && linkPre != null" :data="linkPre" />
-     <FooterContent
-    
-    />
+    <FooterContent />
   </div>
 </template>
 <script>

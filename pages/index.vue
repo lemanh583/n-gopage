@@ -1,13 +1,14 @@
 <template>
 <div>
 
-    <div>dfkvnfkdnv </div>
+    <!-- <div>dfkvnfkdnv </div>
     <div v-for="(a,index) in arrLink" :key="index">
       <div>{{a}}</div>
       <div>---------------------------------------</div>
     </div>
     <div>----------------------------------------------</div>
-    <div>{{menus}}</div>
+    <div>{{menus}}</div> -->
+    <a href="https://www.facebook.com/">facebook</a>
     <!-- <div>{{category}} </div> -->
     <!-- <HeaderContent :title="posts[0].title" :descriptions="posts[0].descriptions"/>
     <div class="content">

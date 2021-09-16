@@ -11,8 +11,8 @@
         :maskStyle="{ backgroundColor: ' rgba(24, 48, 85, 0.3)' }"
         @close="onCloseSider"
       >
-        <div class="res-menu">
-          <div class="head-respon" style="">
+        <div >
+          <div class="header-menu-responsive" style="">
             <a-icon class="left-res" type="arrow-left" @click="onCloseSider" />
           </div>
           <div class="content-left left-sider-header">
@@ -71,7 +71,7 @@ export default {
   font-weight: 500;
   line-height: 1.5;
 }
-.head-respon {
+.header-menu-responsive {
   height: 80px;
   border-bottom: 1px solid #d4dadf;
   background-color: white;
@@ -91,7 +91,7 @@ export default {
   margin-left: 24px;
 }
 @media only screen and (max-width: 1024px) {
-  .head-respon {
+  .header-menu-responsive {
     display: none;
   }
 }
@@ -99,7 +99,7 @@ export default {
   .header {
     height: 60px;
   }
-  .head-respon {
+  .header-menu-responsive {
     display: block;
     height: 60px;
   }

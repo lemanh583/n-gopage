@@ -5,7 +5,7 @@
       <a-col :span="24" class="col">
         <div class="paginate">
           <a-icon type="arrow-left" />
-          <div>
+          <div style="text-align: right">
             <span>{{data.category}}-Previous</span>
             <h3>{{data.params.titlePost}}</h3>
           </div>

@@ -4,7 +4,7 @@
       <div class="flex-author">
         <div class="hover-author">
           <img
-            :src= img
+            src= "https://lh5.googleusercontent.com/-ylV7XAIKYHg/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmEmBiM_IwhA7rA05EdvDzODpHYaQ/photo.jpg"
             alt="author-img"
           />
           <div class="author">
